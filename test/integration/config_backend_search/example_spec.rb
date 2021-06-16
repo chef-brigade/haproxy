@@ -43,8 +43,6 @@ cfg_content = [
   '',
   'backend servers',
   '  server disabled-server 127\.0\.0\.1:1 disabled',
-  '  server be-1 10\.0\.0\.75:8000 maxconn 32',
-  '  server be-2 10\.0\.0\.76:8000 maxconn 32',
 ]
 
 describe file('/etc/haproxy/haproxy.cfg') do

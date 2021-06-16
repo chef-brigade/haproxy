@@ -5,6 +5,7 @@ driver:
 provisioner:
   name: chef_zero
   deprecations_as_errors: true
+  always_update_cookbooks: true
   chef_license: accept
   product_name: chef
   product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
@@ -27,98 +28,53 @@ platforms:
 
 suites:
   - name: package
-    run_list:
-      - recipe[test::package]
+    named_run_list: package
   - name: source-1.8
-    run_list:
-      - recipe[test::source-18]
+    named_run_list: source-18
   - name: source-2.0
-    run_list:
-      - recipe[test::source-20]
+    named_run_list: source-20
   - name: source-2.2
-    run_list:
-      - recipe[test::source-22]
+    named_run_list: source-22
   - name: source-default
-    run_list:
-      - recipe[test::source]
+    named_run_list: source
   - name: source_lua
-    run_list:
-      - recipe[test::source_lua]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: source_lua
+    includes: [centos-7, centos-stream-8]
   - name: source_openssl
-    run_list:
-      - recipe[test::source_openssl]
+    named_run_list: source_openssl
   - name: config_1
-    run_list:
-      - recipe[test::config_1]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_1
+    includes: [centos-7, centos-stream-8]
   - name: config_2
-    run_list:
-      - recipe[test::config_2]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_2
+    includes: [centos-7, centos-stream-8]
   - name: config_3
-    run_list:
-      - recipe[test::config_3]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_3
+    includes: [centos-7, centos-stream-8]
   - name: config_4
-    run_list:
-      - recipe[test::config_4]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_4
+    includes: [centos-7, centos-stream-8]
   - name: config_backend_search
-    run_list:
-      - recipe[test::config_backend_search]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_backend_search
+    includes: [centos-7, centos-stream-8]
   - name: config_1_userlist
-    run_list:
-      - recipe[test::config_1_userlist]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_1_userlist
+    includes: [centos-7, centos-stream-8]
   - name: config_acl
-    run_list:
-      - recipe[test::config_acl]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_acl
+    includes: [centos-7, centos-stream-8]
   - name: config_resolver
-    run_list:
-      - recipe[test::config_resolver]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_resolver
+    includes: [centos-7, centos-stream-8]
   - name: config_ssl_redirect
-    run_list:
-      - recipe[test::config_ssl_redirect]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_ssl_redirect
+    includes: [centos-7, centos-stream-8]
   - name: config_custom_template
-    run_list:
-      - recipe[test::config_custom_template]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_custom_template
+    includes: [centos-7, centos-stream-8]
   - name: config_array
-    run_list:
-      - recipe[test::config_array]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_array
+    includes: [centos-7, centos-stream-8]
   - name: config_fastcgi
-    run_list:
-      - recipe[test::config_fastcgi]
-    includes:
-      - centos-7
-      - centos-stream-8
+    named_run_list: config_fastcgi
+    includes: [centos-7, centos-stream-8]
