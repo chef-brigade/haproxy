@@ -53,6 +53,9 @@ property :use_libcrypt, [true, false],
 property :use_pcre, [true, false],
           default: true
 
+property :use_promex, [true, false],
+          default: false
+
 property :use_openssl, [true, false],
           default: true
 
@@ -150,6 +153,7 @@ action :install do
     make_cmd << " USE_LINUX_SPLICE=#{compile_make_boolean(new_resource.use_linux_splice)}"
     make_cmd << " USE_SYSTEMD=#{compile_make_boolean(new_resource.use_systemd)}"
     make_cmd << " USE_LUA=#{compile_make_boolean(new_resource.use_lua)}" if new_resource.use_lua
+    make_cmd << " USE_PROMEX=#{compile_make_boolean(new_resource.use_promex)}" if new_resource.use_promex
     make_cmd << " LUA_LIB=#{new_resource.lua_lib}" if property_is_set?(:lua_lib)
     make_cmd << " LUA_INC=#{new_resource.lua_inc}" if property_is_set?(:lua_inc)
     make_cmd << " SSL_LIB=#{new_resource.ssl_lib}" if property_is_set?(:ssl_lib)

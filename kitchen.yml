@@ -38,6 +38,9 @@ suites:
   - name: source-2.2
     run_list:
       - recipe[test::source-22]
+  - name: source-2.4
+    run_list:
+      - recipe[test::source-24]
   - name: source-default
     run_list:
       - recipe[test::source]
